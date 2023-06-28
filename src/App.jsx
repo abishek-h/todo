@@ -9,12 +9,16 @@ function App() {
   const handle = (e) => {
     setinput(e.target.value);
   };
-  const addinput = () => {
-    const task = {
-      key: array.length === 0 ? 1 : array[array.length - 1].key + 1,
-      name: input,
-    };
-    setarray([...array, task]);
+
+  const addinput = (e) => {
+    e.preventDefault();
+    if (input != "") {
+      const task = {
+        key: array.length === 0 ? 1 : array[array.length - 1].key + 1,
+        name: input,
+      };
+      setarray([...array, task]);
+    }
   };
   const remove = (value) => {
     setarray(
@@ -30,10 +34,12 @@ function App() {
         <div id="title">Tasks List</div>
       </div>
       <div className="input-area">
-        <input id="in-box" onChange={handle}></input>
-        <button id="add-but" onClick={addinput}>
-          Add
-        </button>
+        <form onSubmit={addinput}>
+          <input id="in-box" onChange={handle}></input>
+          <button id="add-but" type="submit">
+            Add
+          </button>
+        </form>
       </div>
       <div className="output-area">
         {array.map((value) => {
