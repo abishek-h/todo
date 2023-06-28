@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import image from "./image.png";
 
@@ -9,7 +9,6 @@ function App() {
   const handle = (e) => {
     setinput(e.target.value);
   };
-
   const addinput = (e) => {
     e.preventDefault();
     if (input != "") {
@@ -19,6 +18,7 @@ function App() {
       };
       setarray([...array, task]);
     }
+    setinput("");
   };
   const remove = (value) => {
     setarray(
@@ -35,7 +35,7 @@ function App() {
       </div>
       <div className="input-area">
         <form onSubmit={addinput}>
-          <input id="in-box" onChange={handle}></input>
+          <input id="in-box" onChange={handle} value={input}></input>
           <button id="add-but" type="submit">
             Add
           </button>
