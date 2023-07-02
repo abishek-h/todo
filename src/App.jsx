@@ -1,10 +1,15 @@
 import { useEffect, useState } from "react";
 import "./App.css";
-import image from "./image.png";
 
 function App() {
-  const [array, setarray] = useState([]);
+  const [array, setarray] = useState(
+    JSON.parse(localStorage.getItem("list")) || []
+  );
   const [input, setinput] = useState("");
+  const name = ["T", "A", "S", "K", "S"];
+  useEffect(() => {
+    localStorage.setItem("list", JSON.stringify(array));
+  }, [array]);
 
   const handle = (e) => {
     setinput(e.target.value);
@@ -29,36 +34,41 @@ function App() {
   };
   return (
     <>
-      <div id="header">
-        <img src={image} id="logo"></img>
-        <div id="title">Tasks List</div>
-      </div>
-      <div className="input-area">
-        <form onSubmit={addinput}>
-          <input id="in-box" onChange={handle} value={input}></input>
-          <button id="add-but" type="submit">
-            Add
-          </button>
-        </form>
-      </div>
-      <div className="output-area">
-        {array.map((value) => {
-          return (
-            <div id="list">
-              <div>{value.name}</div>
-              <div className="buttons">
-                <button
-                  id="d"
-                  onClick={() => {
-                    remove(value);
-                  }}
-                >
-                  Delete
-                </button>
-              </div>
-            </div>
-          );
-        })}
+      <div className="king">
+        <div id="header">
+          {name.map((word) => {
+            return <div className="title">{word}</div>;
+          })}
+        </div>
+        <div id="right-section">
+          <div className="input-area">
+            <form onSubmit={addinput}>
+              <input id="in-box" onChange={handle} value={input}></input>
+              <button id="add-but" type="submit">
+                Add
+              </button>
+            </form>
+          </div>
+          <div className="output-area">
+            {array?.map((value) => {
+              return (
+                <div id="list">
+                  <div>{value.name}</div>
+                  <div className="buttons">
+                    <button
+                      id="d"
+                      onClick={() => {
+                        remove(value);
+                      }}
+                    >
+                      Delete
+                    </button>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
       </div>
     </>
   );

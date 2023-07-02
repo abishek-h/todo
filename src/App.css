@@ -8,14 +8,17 @@
 #header {
   display: flex;
   align-items: center;
-  padding-top: 1rem;
-  padding-left: 1rem;
-  padding-bottom: 1rem;
-  background: #2c3333;
+  justify-content: center;
+  flex-direction: column;
+  background: #625b71;
+  height: 100vh;
+  width: 15vw;
+  border-top-right-radius: 2.5rem;
+  border-bottom-right-radius: 2.5rem;
 }
-#title {
-  font-size: 2.5rem;
-  font-family: "ubuntu";
+.title {
+  font-size: 7rem;
+  font-family: "raleway";
   font-weight: lighter;
   margin-left: 1rem;
   color: #f5efe7;
@@ -27,9 +30,11 @@ in-box:focus {
   outline: none;
   font-size: 1rem;
   font-family: "raleway";
-  padding-left: 0.5rem;
+  padding-left: 1rem;
   background: #f0f0f0;
   border: 0.5px solid;
+  border-bottom-left-radius: 2rem;
+  border-top-left-radius: 2rem;
 }
 #add-but {
   width: 5rem;
@@ -37,9 +42,11 @@ in-box:focus {
   font-family: "raleway";
   font-size: 1rem;
   color: white;
-  background: #2c3333;
+  background: #625b71;
   border: none;
   cursor: pointer;
+  border-bottom-right-radius: 2rem;
+  border-top-right-radius: 2rem;
 }
 .input-area {
   padding-top: 5rem;
@@ -49,14 +56,15 @@ in-box:focus {
 #list {
   display: flex;
   justify-content: space-between;
-  width: 40vw;
+  width: 30vw;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 1rem;
   font-family: "raleway";
   border: 1px solid black;
-  padding: 0.4rem 0.5rem 0.4rem 0.5rem;
+  padding: 0.4rem 0.5rem 0.4rem 1rem;
   align-items: center;
+  border-radius: 1rem;
 }
 .output-area {
   padding-top: 5rem;
@@ -65,4 +73,17 @@ in-box:focus {
   font-family: "raleway";
   border: none;
   cursor: pointer;
+  background-color: #f3edf7;
+}
+.king {
+  display: flex;
+}
+body {
+  background-color: #f3edf7;
+}
+#right-section {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
 }
