@@ -126,4 +126,7 @@ body {
   in-box:focus {
     width: 42vw;
   }
+  .king {
+    height: 100vh;
+  }
 }
